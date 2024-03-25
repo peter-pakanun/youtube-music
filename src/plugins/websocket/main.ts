@@ -3,15 +3,13 @@ import { type Socket } from 'node:net';
 import { type Duplex as StreamDuplex } from 'node:stream';
 import { createHash } from 'node:crypto';
 
-import { app, ipcMain, IpcMainEvent } from 'electron';
+import { ipcMain, IpcMainEvent } from 'electron';
 import { dev } from 'electron-is';
 
 import { createBackend, LoggerPrefix } from '@/utils';
 import registerCallback, { type SongInfo } from '@/providers/song-info';
 
 import type { WebsocketPluginConfig } from './index';
-
-let window: Electron.BrowserWindow;
 
 export interface State {
   ready: boolean;
@@ -50,7 +48,6 @@ export const backend = createBackend<
 >({
   async start({ window: win, getConfig }) {
     this.config = await getConfig();
-    window = win;
 
     state.httpServer = createServer((_req, res) => {
       // send state.lastSongInfo as JSON
