@@ -159,6 +159,8 @@ Read this in other languages: [🇰🇷](./docs/readme/README-ko.md), [🇮🇸]
 
 - **Visualizer**: Different music visualizers
 
+- **WebSocket**: Get songInfo from WebSocket server at ws://127.0.0.1:23232
+
 ## Translation
 
 You can help with translation on [Hosted Weblate](https://hosted.weblate.org/projects/youtube-music/).
